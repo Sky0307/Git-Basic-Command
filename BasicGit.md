@@ -1,6 +1,28 @@
-# Basic Git Command Line
+# Basic Git CLI Command
 
-> This note is made while self-learning web dev from The Odin Project and by watching this [youtube video](xhttps://www.youtube.com/watch?v=HVsySz-h9r4)
+<!-- toc -->
+
+  * [Setup Git](#setup-git)
+  * [Need Help](#need-help)
+    + [Example](#example)
+  * [Initialize a repository from existing code](#initialize-a-repository-from-existing-code)
+  * [Before First Commit](#before-first-commit)
+  * [Our First Commit](#our-first-commit)
+  * [Cloning a remote repo](#cloning-a-remote-repo)
+  * [Viewing Info about the Remote Repo](#viewing-info-about-the-remote-repo)
+- [Given a scenario that if you have a file, calc.py, and you have made changes to it](#given-a-scenario-that-if-you-have-a-file-calcpy-and-you-have-made-changes-to-it)
+- [Pushing changes](#pushing-changes)
+  * [1. Commit your changes](#1-commit-your-changes)
+  * [2. Push to Remote repo](#2-push-to-remote-repo)
+- [Common workflow](#common-workflow)
+  * [Create a branch for desired feature](#create-a-branch-for-desired-feature)
+- [After you have made the changes, commit them](#after-you-have-made-the-changes-commit-them)
+  * [Commit them just like here](#commit-them-just-like-here%23-1-commit-your-changes)
+  * [Then push branch to remote](#then-push-branch-to-remote)
+  * [Merge a branch](#merge-a-branch)
+  * [Delete a branch](#delete-a-branch)
+
+<!-- tocstop -->
 
 ### Setup Git
 
@@ -45,7 +67,8 @@
     - *.gitignore* is just a text file. Next, you open this text file using your text editor(VS Code etc), and type in
         > .DS_Store
     
-        etc
+        etc  
+        or u can just enter the following line into your command `echo ".DS_Store" > .gitignore
 
 3. Add all files to Staging Area
     - `git add -A`
@@ -96,10 +119,18 @@
 1. `git branch calc-divide`, create a new branch named **calc-divide**
 2. run `git branch` to check which branch are you working on
 3. `git checkout calc-divide`, change you working branch to the one you just created(calc-divide)
+4. or you can combine first and second step together to be `git checkout -b <calc-divide>`
+
+### Alternative Commands of creating a branch
+
+Use the following command to create a new branch    
+`git switch -c new-branch`
+
+#### change to another branch by just `git switch another-branch`
 
 ## After you have made the changes, commit them
 
-### Commit them just like [here](#1.-commit-your-changes)
+### Commit them just like [here](#1-commit-your-changes)
 
 ### Then push branch to remote
 
@@ -120,3 +151,54 @@
 2. `git branch -d calc-divide`
 3. `git branch -a`
 4. `git push origin --delete calc-divide`, to delete the **calc-divide** branch from remote repo
+
+## To delete files from git
+
+### use the following command: `git rm <filename>`
+
+or 
+
+### Delete manually
+1. Delete them in you file explorer / finder,
+2. On the command prompt, enter the the following command: `git add .`     
+Voila! You wil see your files being deleted not juz from the finder but also from git
+
+## Undo Unstaged Files
+
+Let's say you have a file edited but unstaged, so you remove the changes u made in the file with the following command:    
+`git checkout <filename>`
+
+### Alternative with `restore` command
+
+the same result can be achieved by running this command: `git restore <filename>` or simply replace `<filename>` with `.` to remove all the unstaged changes
+
+### Delete unstage files
+
+1. first check which files can be removed by : `git clean -dn`
+2. then `git clean -df`, the `f` tag stands for force, you git will force remove the files that are unstage
+
+## Undoing Staged Files
+
+Let's say you have some staged edits and you wanna remove it, we can do it in 2 steps
+### With 2 steps
+1. Restore to the latest commits by `git restore --staged <filename>`
+2. Then `git checkout <filename>`
+
+## Delete Commits with `reset`
+
+### `git reset --soft HEAD~1`
+
+- the `--soft` tag basically mean undo the command `git commit -m "msg"`, the git will go back the HEAD by 1 commit, but the changes will be remained staged
+- you can still commit the changes without staging them and with the command `git commit -m "previous commit"`
+
+### Default `reset` command : `git reset HEAD~1`
+
+- after running this command, the changes will be unstaged.
+- if you wanna go back 2 commits, just change `HEAD~1` to `HEAD~2` etc
+
+## Deleting branch
+
+### `git branch -D <branch-name>`
+
+
+ 
