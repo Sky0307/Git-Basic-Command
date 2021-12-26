@@ -16,11 +16,26 @@
   * [2. Push to Remote repo](#2-push-to-remote-repo)
 - [Common workflow](#common-workflow)
   * [Create a branch for desired feature](#create-a-branch-for-desired-feature)
+  * [Alternative Commands of creating a branch](#alternative-commands-of-creating-a-branch)
+    + [change to another branch by just `git switch another-branch`](#change-to-another-branch-by-just-git-switch-another-branch)
 - [After you have made the changes, commit them](#after-you-have-made-the-changes-commit-them)
-  * [Commit them just like here](#commit-them-just-like-here%23-1-commit-your-changes)
+  * [Commit them just like [here](#1-commit-your-changes)](#commit-them-just-like-here%231-commit-your-changes)
   * [Then push branch to remote](#then-push-branch-to-remote)
   * [Merge a branch](#merge-a-branch)
   * [Delete a branch](#delete-a-branch)
+- [To delete files from git](#to-delete-files-from-git)
+  * [use the following command: `git rm `](#use-the-following-command-git-rm-)
+  * [Delete manually](#delete-manually)
+- [Undo Unstaged Files](#undo-unstaged-files)
+  * [Alternative with `restore` command](#alternative-with-restore-command)
+  * [Delete unstage files](#delete-unstage-files)
+- [Undoing Staged Files](#undoing-staged-files)
+  * [With 2 steps](#with-2-steps)
+- [Delete Commits with `reset`](#delete-commits-with-reset)
+  * [`git reset --soft HEAD~1`](#git-reset---soft-head1)
+  * [Default `reset` command : `git reset HEAD~1`](#default-reset-command--git-reset-head1)
+- [Deleting branch](#deleting-branch)
+  * [`git branch -D `](#git-branch--d-)
 
 <!-- tocstop -->
 
@@ -199,6 +214,3 @@ Let's say you have some staged edits and you wanna remove it, we can do it in 2 
 ## Deleting branch
 
 ### `git branch -D <branch-name>`
-
-
- 
