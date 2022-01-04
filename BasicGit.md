@@ -206,6 +206,9 @@ Let's say you have some staged edits and you wanna remove it, we can do it in 2 
 - the `--soft` tag basically mean undo the command `git commit -m "msg"`, the git will go back the HEAD by 1 commit, but the changes will be remained staged
 - you can still commit the changes without staging them and with the command `git commit -m "previous commit"`
 
+## Extra 
+`git fetch --prune`
+
 ### Default `reset` command : `git reset HEAD~1`
 
 - after running this command, the changes will be unstaged.
